@@ -1,0 +1,27 @@
+{
+  "name": "canvas-points",
+  "description": "A canvas UI for implement algorithmic problems using JavaScript.",
+  "main": "main.js",
+  "authors": [
+    "Raphael Brandão"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "canvas",
+    "html5",
+    "algorithmic",
+    "problems"
+  ],
+  "homepage": "https://github.com/raphaelbs/canvasPoints",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "ace-builds": "^1.2.5"
+  }
+}

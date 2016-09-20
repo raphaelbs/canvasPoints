@@ -1,0 +1,32 @@
+{
+  "name": "canvas-points",
+  "version": "1.0.0",
+  "description": "A canvas UI for implement algorithmic problems using JavaScript.",
+  "main": "main.js",
+  "private": true,
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raphaelbs/canvasPoints.git"
+  },
+  "keywords": [
+    "canvas",
+    "html5",
+    "algorithmic",
+    "problems"
+  ],
+  "author": "Raphael Brandão",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/raphaelbs/canvasPoints/issues"
+  },
+  "homepage": "https://github.com/raphaelbs/canvasPoints#readme",
+  "devDependencies": {
+    "electron": "^1.4.0"
+  },
+  "dependencies": {
+    "jquery": "^3.1.0"
+  }
+}

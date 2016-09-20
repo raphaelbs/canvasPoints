@@ -1,3 +1,5 @@
+window.$ = window.jQuery = require('jquery');
+
 $(document).ready(function(){
 	var rs = function(){
 		$('#codigo').css('height', $('canvas').css('height'));
@@ -74,7 +76,7 @@ canvas = function(canvas){
 	var canvas = document.getElementById(canvas), ctx = canvas.getContext("2d");
 	var objs = [], objPos = [];
 	var scale = 1, originx = 0, originy = 0;
-	
+
 	// Zoom
 	canvas.onmousewheel = function (event){
 		var mousex = event.clientX - canvas.offsetLeft;
@@ -98,7 +100,7 @@ canvas = function(canvas){
 		scale *= zoom;
 		invalidate();
 	}
-	
+
 	// Pan
 	var isDown = false, hasPos = false, startCoords = [];
 	canvas.onmousedown = function(e) {
@@ -125,7 +127,7 @@ canvas = function(canvas){
 		invalidate();
 	}
 
-	
+
 	function line(x1, y1, x2, y2, color){
 		this.x1 = x1; this.y1 = y1; this.x2 = x2; this.y2 = y2; this.color = color || 'black';
 	}
@@ -154,7 +156,7 @@ canvas = function(canvas){
 				ctx.font = (30/scale) + "px Arial";
 				ctx.fillStyle = "red";
 				ctx.textAlign = "left";
-				ctx.fillText('y', obj.x + 15/scale, originy + 30/scale); 
+				ctx.fillText('y', obj.x + 15/scale, originy + 30/scale);
 			}
 			if(obj instanceof hline){
 				ctx.moveTo(originx, obj.y);
@@ -164,7 +166,7 @@ canvas = function(canvas){
 				ctx.font = (30/scale) + "px Arial";
 				ctx.fillStyle = "red";
 				ctx.textAlign = "left";
-				ctx.fillText('x', originx + 15/scale, obj.y + 30/scale); 
+				ctx.fillText('x', originx + 15/scale, obj.y + 30/scale);
 			}
 			if(obj instanceof line){
 				ctx.moveTo(obj.x1, obj.y1);
@@ -186,16 +188,16 @@ canvas = function(canvas){
 				ctx.font = "10px Arial";
 				ctx.fillStyle = "red";
 				ctx.textAlign = "left";
-				ctx.fillText(obj.text, obj.x, obj.y + 10); 
+				ctx.fillText(obj.text, obj.x, obj.y + 10);
 			}
 		}
 	}
-	
+
 	objs.push(new hline(0, '#898989')); // X axis
 	objs.push(new vline(0, '#898989')); // Y axis
 	objs.push(new circle(0, 0, 0, 'white'));
 	invalidate();
-	
+
 	var retObj = {
 		line : function(x1, y1, x2, y2, color){
 			objs.push(new line(x1, y1, x2, y2, color));
@@ -237,14 +239,14 @@ canvas = function(canvas){
 }('visual');
 
 var events = function(){
-	var knowEvents = {next : 'function(x, y)', previous : 'function(x, y)'}, 
+	var knowEvents = {next : 'function(x, y)', previous : 'function(x, y)'},
 	evts = {};
 	return{
 		on : function(fn, callback){
 			if(typeof fn !== 'string' || typeof callback !== 'function')
 				return console.error('Parametros incorretos, informe events.on("functionName", function callback(){})');
 			if(!knowEvents[fn]) return console.error('Evento desconhecido! Os eventos são: ' + knowEvents);
-			if(!evts[fn]) 
+			if(!evts[fn])
 				evts[fn] = [callback];
 			else
 				evts[fn].push(callback);
@@ -252,7 +254,7 @@ var events = function(){
 		call : function(fn, callback){
 			if(!knowEvents[fn]) return callback('Evento desconhecido! Os eventos são: ' + knowEvents);
 			if(!evts[fn]) return callback('Callback do evento [' + fn + '] não declarado.\nAlgo está chamando este evento mas não há o que fazer..');
-			
+
 			for(var i=0; i<evts[fn].length; i++)
 				return callback(null, evts[fn][i]);
 		},

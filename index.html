@@ -1,16 +1,13 @@
 <html>
 
 <head>
-	<title>Canvas | Find</title>
+	<title>CanvasPoints</title>
 	<meta charset="UTF-8" />
-	
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 	<link rel="stylesheet" href="style.css">
-	
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+
 </head>
 
 <body>
@@ -54,7 +51,7 @@ events.on('next', function(x, y){
 							pode guardar múltiplas funções, ao usar este método, o usuário deve invocar o argumento <b>fn</b> para invocar as funções.</li>
 							<li><a><b>events.reset()</b></a> - reseta todas funções atribuidas nos eventos.</li>
 						</ul>
-						
+
 						<br>
 						<h5 class="text-right">Desenvolvido por <a href="mailto:raphael.b.souza@hotmail.com">Raphael Brandão</a></h5>
 					</div>
@@ -75,7 +72,7 @@ events.on('next', function(x, y){
 200.00 200.00</div>
 					</div>
 					<div class="col-xs-4">
-						<h4 id="pontoslabel"><span class="glyphicon glyphicon-chevron-right"></span><h4>
+						<h5 id="pontoslabel"><span class="glyphicon glyphicon-chevron-right"></span><h5>
 					</div>
 				</div>
 			</div>
@@ -90,14 +87,10 @@ events.on('next', function(x, y){
 			</div>
 		</div>
 	</div>
-	
-	<script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
-	
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-	
-	<script src="http://ajaxorg.github.io/ace-builds/src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
-	
+
+
+	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js" charset="utf-8"></script>
+	<script src="bower_components/ace-builds/src-min-noconflict/ace.js" charset="utf-8"></script>
 	<script src="scripts.js"></script>
 </body>
 
