@@ -5,7 +5,8 @@
   "main": "main.js",
   "private": true,
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-packager ./ --all --out=build"
   },
   "repository": {
     "type": "git",
@@ -24,7 +25,8 @@
   },
   "homepage": "https://github.com/raphaelbs/canvasPoints#readme",
   "devDependencies": {
-    "electron": "^1.4.0"
+    "electron": "^1.4.0",
+    "electron-packager": "^8.0.0"
   },
   "dependencies": {
     "jquery": "^3.1.0"
