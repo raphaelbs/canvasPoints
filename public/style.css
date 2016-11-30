@@ -1,0 +1,64 @@
+html{
+	overflow: hidden;
+	padding: 0px;
+}
+
+body {
+	background-color: #a4a4a4;
+}
+canvas {
+	border: 3px dashed #656565;
+	border-radius: 5px;
+	width: 100%;
+	height: auto;
+}
+#pontoslabel {
+	background-color: black;
+	color: white;
+	padding: 10px;
+}
+#codigo {
+	height: 500px;
+	width: 100%;
+	border: 3px dashed #656565;
+	border-radius: 5px;
+}
+
+#codigo, #doc {
+	backface-visibility: hidden;
+	position: absolute;
+	margin: 0;
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+#doc{
+	overflow-y: auto;
+	border: 3px dashed #858585;
+	padding: 10px 30px 10px 30px;
+	border-radius: 5px;
+	background: white;
+	transform: rotateY( 180deg );
+}
+
+#card.flipped {
+	transform: rotateY( 180deg );
+}
+
+#pontos {
+	width: 182px;
+	height: 64px;
+}
+
+.rightSide{
+	perspective: 800px;
+}
+
+#card {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	transform-style: preserve-3d;
+	transition: transform 1s;
+}

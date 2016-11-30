@@ -1,69 +1,100 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Welcome to Firebase Hosting</title>
-    <style media="screen">
-      body {
-        font-family: Roboto, Arial, sans-serif;
-        background: #ECEFF1;
-        color: rgba(0,0,0,0.87);
-      }
 
-      a {
-        color: rgb(3,155,229);
-      }
+<head>
+	<title>CanvasPoints</title>
+	<meta charset="UTF-8" />
 
-      #message {
-        max-width: 400px;
-        margin: 40px auto;
-        box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2),0 1px 1px 0 rgba(0,0,0,0.14),0 2px 1px -1px rgba(0,0,0,0.12);
-        border-radius: 2px;
-        background: white;
-        padding: 16px 24px;
-      }
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-      #message h1 {
-        font-size: 22px;
-        font-weight: 500;
-        text-align: center;
-        margin: 0 0 16px;
-      }
+</head>
 
-      #message p {
-        font-weight: 300;
-        line-height: 150%;
-      }
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<br>
+			<div class="col-xs-6">
+				<canvas id="visual" width="800" height="650"></canvas>
+			</div>
+			<div class="col-xs-6 rightSide">
+				<div id="card">
+<div id="codigo">
+var points = [];
 
-      #message ul {
-        list-style: none;
-        margin: 16px 0 0;
-        padding: 0;
-        text-align: center;
-      }
+events.on('next', function(x, y){
+	points.push({x : x, y : y});
+	canvas.point(x, y);
+});
+</div>
+					<div id="doc">
+						<h1>API</h1>
+						<h3><small><span class="glyphicon glyphicon-pencil"></span></small> Canvas</h3>
+						<ul>
+							<li><a><b>canvas.point(x, y)</b></a> - cria um ponto em <b>(x,y)</b></li>
+							<li><a><b>canvas.line(x1, y1, x2, y2, color)</b></a> - cria uma linha entre <b>(x1,y1)</b> e <b>(x2,y2)</b> e colore com o RGB <b>color</b></li>
+							<li><a><b>canvas.circle(x, y, radius, color)</b></a> - cria uma circulo em <b>(x,y)</b> com raio <b>radius</b> e colore com o RGB <b>color</b></li>
+							<li><a><b>canvas.center(x, y)</b></a> - centraliza o canvas em <b>(x,y)</b> ou no (0,0) se <b>(x,y)</b> não forem informados.</li>
+							<li><a><b>canvas.reset()</b></a> - limpa o <b>canvas</b>, recarrega o código e move o cursor dos <b>pontos de teste</b> para o começo</li>
+						</ul>
+						<h3><small><span class="glyphicon glyphicon-eye-open"></span></small> Eventos</h3>
+						<ul>
+							<li><a><b>events.on('nomeDoEvento', function)</b></a> - seta um callback para o evento escolhido.<br>Os eventos são:
+								<ol>
+									<li>on(<b>'next'</b>, <b>function(x, y)</b>) - invocado quando o próximo ponto é carregado. Envia as coordenadas
+									X e Y pelos argumentos da função.</li>
+									<li>on(<b>'previous'</b>, <b>function(x, y)</b>) - invocado quando o ponto anterior é carregado. Envia as coordenadas
+									X e Y pelos argumentos da função.</li>
+								</ol>
+							</li>
+							<li><a><b>events.call('nomeDoEvento', function(err, fn))</b></a> - retorna as funções atribuidas no evento. Como o evento
+							pode guardar múltiplas funções, ao usar este método, o usuário deve invocar o argumento <b>fn</b> para invocar as funções.</li>
+							<li><a><b>events.reset()</b></a> - reseta todas funções atribuidas nos eventos.</li>
+						</ul>
 
-      #message li a {
-        display: inline-block;
-        padding: 8px;
-        text-transform: uppercase;
-        text-decoration: none;
-        font-weight: 500;
-        background: rgb(3,155,229);
-        color: white;
-        border: 1px solid rgb(3,155,229);
-        border-radius: 3px;
-        font-size: 14px;
-        box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h1>Welcome to Firebase Hosting</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <ul>
-        <li><a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a></li>
-      </ul>
-    </div>
-  </body>
+						<br>
+						<h5 class="text-right">Desenvolvido por <a href="mailto:raphael.b.souza@hotmail.com">Raphael Brandão</a></h5>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-6">
+				<div class="row well well-sm">
+					<div class="col-xs-4">
+						<h4>Pontos de teste<br><small>cada linha representa um par ordenado</small></h4>
+					</div>
+					<div class="col-xs-4">
+<div id="pontos">0.00 0.00
+0.00 100.00
+100.00 0.00
+100.00 100.00
+200.00 200.00</div>
+					</div>
+					<div class="col-xs-4">
+						<h5 id="pontoslabel"><span class="glyphicon glyphicon-chevron-right"></span><h5>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-6 text-center">
+				<div class="btn-group">
+					<button class="btn btn-lg" id="prev"><span class="glyphicon glyphicon-arrow-left"></span> anterior</button>
+					<button class="btn btn-lg" id="next"><span class="glyphicon glyphicon-arrow-right"></span> proximo</button>
+					<button class="btn btn-lg" id="center"><span class="glyphicon glyphicon-screenshot"></span> centralizar</button>
+					<button class="btn btn-lg text-danger" id="reset"><span class="glyphicon glyphicon-refresh"></span> resetar</button>
+				</div>
+				<button class="btn btn-sm text-info" id="api"><span class="glyphicon glyphicon-info-sign"></span> API</button>
+			</div>
+		</div>
+	</div>
+
+
+	<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" charset="utf-8"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.5/ace.js" charset="utf-8"></script>
+	<script src="scripts.js"></script>
+</body>
+
 </html>
