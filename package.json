@@ -27,8 +27,5 @@
   "devDependencies": {
     "electron": "^1.4.0",
     "electron-packager": "^8.0.0"
-  },
-  "dependencies": {
-    "jquery": "^3.1.0"
   }
 }

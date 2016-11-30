@@ -1,4 +1,5 @@
-window.$ = window.jQuery = require('jquery');
+if(!window.$)
+	window.$ = window.jQuery = require('jquery');
 
 $(document).ready(function(){
 	var rs = function(){
